@@ -11,16 +11,20 @@ public class ListCommand implements Command {
 
     @Override
     public void execute(String[] args) {
-        Path pwd = Path.of(args[0]);
+        Path pwd = Path.of(System.getProperty("user.dir"));
+        if(args.length != 0)
+        {
+            pwd = Path.of(args[0]);
+        }
+
         if (pwd.toFile().isDirectory()) {
             System.out.printf("%-30s %-5s %-5s %-5s %-20s%n", "NAME", "TYPE", "READ", "WRITE", "LAST MODIFIED");
             System.out.println("=".repeat(70));
             for (File item : Objects.requireNonNull(pwd.toFile().listFiles())) {
                 char type = item.isDirectory() ? 'D' : 'F';
-                String formattedDate = sdf.format(new Date(item.lastModified()));
                 char read = item.canRead() ? 'R' : ' ';
                 char write = item.canWrite() ? 'W' : ' ';
-
+                String formattedDate = sdf.format(new Date(item.lastModified()));
 
                 System.out.printf("%-30s %-5s %-5s %-5s %-20s%n",  item.getName(), type, read, write, formattedDate);
             }
