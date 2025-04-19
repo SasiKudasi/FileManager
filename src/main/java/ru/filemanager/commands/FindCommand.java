@@ -1,6 +1,7 @@
 package ru.filemanager.commands;
 
 import java.io.File;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class FindCommand implements Command {
@@ -23,9 +24,7 @@ public class FindCommand implements Command {
         }
 
         if (file.isDirectory()) {
-            for (File f : file.listFiles()) {
-                if (f.getName().equals("gradlew"))
-                    System.out.println("GRADLEW HERE");
+            for (File f : Objects.requireNonNull(file.listFiles())) {
                 if (f.isDirectory()) {
                     findFile(f, pattern);
                 } else if (pattern.equals(f.getName())) {
