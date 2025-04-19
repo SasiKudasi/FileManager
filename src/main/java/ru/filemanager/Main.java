@@ -10,10 +10,12 @@ public class Main {
     public static void main(String[] args) {
         var controller = new CommandController();
         Scanner scanner = new Scanner(System.in);
-        do{
+        String input;
+        do {
 
             System.out.print("> ");
-            var input = scanner.nextLine();
+            input = scanner.nextLine();
+            if ("exit".equals(input)) break;
             var token = input.trim().split("\\s+");
             if (token.length == 0) continue;
             var cmdName = token[0];

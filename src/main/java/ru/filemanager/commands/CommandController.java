@@ -17,7 +17,6 @@ public class CommandController {
         commandMap.put("delete",    new DeleteCommand());
         commandMap.put("mv",        new MoveCommand());
         commandMap.put("find",      new FindCommand());
-        commandMap.put("exit",      new ExitCommand());
     }
 
 
