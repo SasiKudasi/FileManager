@@ -1,38 +1,34 @@
 package ru.filemanager.commands;
 
+import ru.filemanager.commands.util.PathContext;
+
 import java.io.File;
-import java.util.Objects;
+import java.nio.file.Path;
 
 public class FindCommand implements Command {
     @Override
     public void execute(String[] args) {
-        if (args.length == 0) return;
+        if (args.length <= 0) return;
+        Path currentDir = PathContext.getInstance().getCurrentDir().toPath();
+        Path startPath = currentDir.resolve(args[0]).normalize();
+        File file = startPath.toFile();
         String pt = args[1];
-        File file = new File(args[0]);
+
         findFile(file, pt);
 
     }
 
-    private void findFile(File file, String pattern) {
+    private void findFile(File dir, String filename) {
+        File[] files = dir.listFiles();
+        if (files == null) return;
 
-        if (file.isFile()){
-            if (pattern.equals(file.getName())) {
-                System.out.println("File " + file.getName() + " was fiend in dir " + file.getAbsolutePath());
-                return;
+        for (File file : files) {
+            if (file.isDirectory()) {
+                findFile(file, filename);
+            } else if (file.getName().equals(filename)) {
+                System.out.println("Found: " + file.getAbsolutePath());
             }
         }
-
-        if (file.isDirectory()) {
-            for (File f : Objects.requireNonNull(file.listFiles())) {
-                if (f.isDirectory()) {
-                    findFile(f, pattern);
-                } else if (pattern.equals(f.getName())) {
-                    System.out.println("File " + f.getName() + " was fiend in dir " + file.getAbsolutePath());
-                    return;
-                }
-            }
-        }
-
     }
 }
 
