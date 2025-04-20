@@ -1,5 +1,7 @@
 package ru.filemanager.commands;
 
+import ru.filemanager.commands.util.PathContext;
+
 import java.io.File;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
@@ -11,7 +13,7 @@ public class ListCommand implements Command {
 
     @Override
     public void execute(String[] args) {
-        Path pwd = Path.of(System.getProperty("user.dir"));
+        Path pwd = PathContext.getInstance().getCurrentDir().toPath();
         if(args.length != 0)
         {
             pwd = Path.of(args[0]);
