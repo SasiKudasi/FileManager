@@ -21,7 +21,7 @@ public class Main {
             input = scanner.nextLine();
             storage.putCommandInStorage(input);
             if ("exit".equals(input)) break;
-            var token = input.trim().split("\\s+");
+            var token = input.trim().split("\\s+"); // тут проблема в том что если в пути есть пробел, то он разобьет этот путь на несколько строк...
             if (token.length == 0) continue;
             var cmdName = token[0];
             try {
