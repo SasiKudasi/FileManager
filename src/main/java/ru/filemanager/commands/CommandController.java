@@ -25,7 +25,7 @@ public class CommandController {
         if (cmd != null)
             return cmd;
         else {
-            throw new RuntimeException("ЗАВЕСТИ КАСТОМНЫЙ ЕКСЕПШЕН");
+            throw new RuntimeException("invalid command");
         }
     }
 

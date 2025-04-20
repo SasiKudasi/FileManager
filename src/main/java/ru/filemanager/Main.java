@@ -19,9 +19,14 @@ public class Main {
             var token = input.trim().split("\\s+");
             if (token.length == 0) continue;
             var cmdName = token[0];
-            var cmd = controller.getCommand(cmdName);
-            String[] arg = Arrays.copyOfRange(token, 1, token.length);
-            cmd.execute(arg);
+            try {
+                var cmd = controller.getCommand(cmdName);
+                String[] arg = Arrays.copyOfRange(token, 1, token.length);
+                cmd.execute(arg);
+            } catch (RuntimeException ex){
+                System.out.println(ex.getMessage());
+            }
+
         } while (true);
 
     }

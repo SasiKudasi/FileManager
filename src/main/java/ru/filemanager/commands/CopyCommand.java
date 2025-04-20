@@ -1,6 +1,8 @@
 package ru.filemanager.commands;
 
 import java.io.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class CopyCommand implements Command {
     @Override
@@ -19,8 +21,15 @@ public class CopyCommand implements Command {
             }
         }
 
-        File targetFile = new File(targetDir, source.getName());
 
+        File targetFile = new File(targetDir, source.getName());
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.submit(() -> copy(source, targetFile));
+
+        executorService.shutdown();
+    }
+
+    public static void copy(File source, File targetFile) {
         try (InputStream in = new FileInputStream(source);
              OutputStream out = new FileOutputStream(targetFile)) {
 
