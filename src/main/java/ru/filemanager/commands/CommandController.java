@@ -17,8 +17,12 @@ public class CommandController {
         commandMap.put("delete",    new DeleteCommand());
         commandMap.put("mv",        new MoveCommand());
         commandMap.put("find",      new FindCommand());
+
     }
 
+    public void register(String cmd, Command command){
+        commandMap.put(cmd,  command);
+    }
 
     public Command getCommand(String commandName){
         var cmd = commandMap.get(commandName);
