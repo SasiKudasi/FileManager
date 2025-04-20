@@ -4,17 +4,17 @@ import java.io.File;
 
 public final class PathContext {
     private File currentDir;
-    private static PathContext instans;
+    private static PathContext instance;
 
     private PathContext() {
         this.currentDir = new File(System.getProperty("user.dir"));
     }
 
     public static PathContext getInstance() {
-        if (instans == null) {
-            instans = new PathContext();
+        if (instance == null) {
+            instance = new PathContext();
         }
-        return instans;
+        return instance;
     }
 
     public File getCurrentDir() {
@@ -25,9 +25,9 @@ public final class PathContext {
         this.currentDir = dir;
     }
 
-    public String getCurrentPath() {
-        return currentDir.getAbsolutePath();
-    }
+//    public String getCurrentPath() {
+//        return currentDir.getAbsolutePath();
+//    }
 
 
 }
