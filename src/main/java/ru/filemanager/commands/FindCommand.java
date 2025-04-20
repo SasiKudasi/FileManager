@@ -8,7 +8,7 @@ import java.nio.file.Path;
 public class FindCommand implements Command {
     @Override
     public void execute(String[] args) {
-        if (args.length <= 0) return;
+        if (args.length < 2) return;
         Path currentDir = PathContext.getInstance().getCurrentDir().toPath();
         Path startPath = currentDir.resolve(args[0]).normalize();
         File file = startPath.toFile();
