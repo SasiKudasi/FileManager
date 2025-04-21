@@ -35,7 +35,7 @@
 ## Установка и запуск
 
 `bash
-> git@github.com:SasiKudasi/FileManager.git
+> git clone git@github.com:SasiKudasi/FileManager.git
 > 
 > cd FileManager
 >
