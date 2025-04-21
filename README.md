@@ -36,6 +36,7 @@
 
 `bash
 > git@github.com:SasiKudasi/FileManager.git
+> 
 > cd FileManager
 >
 > ./gradlew build
