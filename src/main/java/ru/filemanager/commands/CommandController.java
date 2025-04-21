@@ -14,10 +14,11 @@ public class CommandController {
     private void register(){
         commandMap.put("ls",        new ListCommand());
         commandMap.put("cp",        new CopyCommand());
-        commandMap.put("delete",    new DeleteCommand());
+        commandMap.put("rm",        new DeleteCommand());
         commandMap.put("mv",        new MoveCommand());
         commandMap.put("find",      new FindCommand());
         commandMap.put("cd",        new ChangeDirCommand());
+        commandMap.put("pwd",       new PresentWorkingDirCommand());
 
     }
 

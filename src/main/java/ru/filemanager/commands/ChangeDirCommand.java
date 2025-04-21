@@ -8,7 +8,7 @@ public class ChangeDirCommand implements Command {
     @Override
     public void execute(String[] args) {
         if(args.length != 1) {
-            System.out.println("invalid command");
+            System.out.println("invalid command, ls <path>");
             return;
         }
 
@@ -24,8 +24,6 @@ public class ChangeDirCommand implements Command {
             System.out.println("It is not a directory: " + target);
             return;
         }
-
         PathContext.getInstance().setCurrentDir(target);
-        System.out.println("Changed directory to: " + target.getAbsolutePath());
     }
 }

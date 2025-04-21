@@ -10,6 +10,10 @@ import java.util.concurrent.Executors;
 public class CopyCommand implements Command {
     @Override
     public void execute(String[] args) {
+        if (args.length < 2){
+            System.out.println("invalid command, cp <file from> <file to>");
+            return;
+        }
         Path currentDir = PathContext.getInstance().getCurrentDir().toPath();
 
         Path sourcePath = currentDir.resolve(args[0]).normalize();

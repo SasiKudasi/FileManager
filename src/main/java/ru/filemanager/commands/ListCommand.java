@@ -13,6 +13,10 @@ public class ListCommand implements Command {
 
     @Override
     public void execute(String[] args) {
+        if (args.length > 1) {
+            System.out.println("invalid command, ls <path> or ls");
+            return;
+        }
         Path pwd = PathContext.getInstance().getCurrentDir().toPath();
         if(args.length != 0)
         {

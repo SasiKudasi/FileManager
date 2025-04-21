@@ -25,9 +25,9 @@ public final class PathContext {
         this.currentDir = dir;
     }
 
-//    public String getCurrentPath() {
-//        return currentDir.getAbsolutePath();
-//    }
+    public String getCurrentPath() {
+        return currentDir.getAbsolutePath();
+    }
 
 
 }
