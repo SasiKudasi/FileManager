@@ -17,10 +17,25 @@
 
 `bash
 > cp ./test.txt ../backup/
+
 > mv ./image.png D:/media/
+
 > rm ./old_file.log
+
 > find ./ docs.txt
+
 > cd ../src
+
 > ls
+
 > pwd
+
 > history
+
+## Установка и запуск
+`bash> git@github.com:SasiKudasi/FileManager.git
+> cd FileManager
+>
+> ./gradlew build
+>
+> java -jar build/libs/FileManager-1.0-SNAPSHOT.jar 
