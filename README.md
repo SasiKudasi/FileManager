@@ -33,7 +33,9 @@
 > history
 
 ## Установка и запуск
-`bash> git@github.com:SasiKudasi/FileManager.git
+
+`bash
+> git@github.com:SasiKudasi/FileManager.git
 > cd FileManager
 >
 > ./gradlew build
